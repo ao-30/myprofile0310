@@ -1,0 +1,263 @@
+/*
+Theme Name: myprofile
+Theme URI: テーマのURL
+Author:作者名/会社名
+Author URI: 作者/会社のURL
+Description: テーマの説明
+Version: テーマのバージョン
+*/
+
+// 必ず入れる
+@charset "utf-8";
+
+@use "normalize";
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+}
+
+
+
+// ヘッダー
+.header-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 20px;
+  }
+}
+
+// サイトタイトル
+h1 {
+  font-size: 32px;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #333;
+
+  a {
+    text-decoration: none;
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+  }
+}
+
+// モバイル用ナビゲーション開閉
+.navbtn {
+  // ボタンのこと
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  padding: 5px 0;
+
+  // 三本線のこと
+  span {
+    display: block;
+    margin: 10px;
+    border-bottom: 4px solid #333;
+    border-radius: 4px;
+  }
+
+  // 1本目の線の動きのこと
+  .trigger:nth-child(1) {
+    transform: translateY(15px) rotate(-45deg);
+  }
+
+  // 2本目の線の動きのこと
+  .trigger:nth-child(2) {
+    opacity: 0;
+  }
+
+  // 3本目の線の動きのこと
+  .trigger:nth-child(3) {
+    transform: translateY(-13px) rotate(45deg);
+  }
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+// ナビゲーション
+.nav-menu {
+  display: none;
+  position: absolute; /* 三本線クリック後のこと？ */
+  top: 80px;
+  right: 0;
+  width: 100%;
+  text-align: right;
+  background-color: rgba(255, 255, 255, 0.7); /* クリック後に出るメニュー文字の背景 */
+
+  // AboutとWorksのリンクのこと
+  li {
+    padding: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background: none;
+  }
+}
+
+// メイン画像について
+.main-visual {
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      height: 400px;
+    }
+  }
+}
+
+// AboutとWorksの箱のこと
+.about-container, .works-container {
+  padding: 50px 4% 0;
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 60px 20px 0;
+  }
+
+  // AboutとWorksのタイトルについて
+  h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 32px;
+    padding-bottom: 30px;
+  }
+}
+
+// ulのこと ナビと紹介文のところ
+ ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+ }
+
+// Aboutの写真と文章の箱
+.about-box {
+  display: flex;
+  justify-content: center;
+
+  // Aboutの写真が入っている箱
+  .about-img {
+    flex: 0 0 100px; /* 伸長 縮小 幅 */
+    margin-right: 10%;
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      flex: 0 0 300px;
+      margin-right: 15%;
+    }
+
+    // Aboutの写真のこと
+    img {
+      max-width: 100%;
+      border-radius: 50%;
+      padding: 3px;
+      border: 2px solid #333;
+      box-sizing: border-box;
+    }
+  }
+
+  // Aboutの文章が入っている箱
+  .about-text {
+    line-height: 1.6;
+
+    // 名前のこと
+    h3 {
+      margin: 0;
+      padding-bottom: 30px;
+      font-size: 24px;
+    }
+
+    // 文章のこと
+    li {
+      font-size: 16px;
+      text-indent: -1rem;
+      padding-left: 20px;
+    }
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      font-size: 18px;
+    }
+  }
+}
+
+// Worksのアイテムが入っている箱
+.works-box {
+  margin: 0 auto;
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+
+  // Worksの写真と文が入っている箱
+  .works-item {
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      width: calc(100%/3);
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    // 6枚の写真のこと
+    .works-img {
+      width: 100%;
+    }
+
+    // 6つの説明文のこと
+    p {
+      font-size: 14px;
+      margin: 0 0 15px;
+    }
+  }
+}
+
+// フッターのこと
+.footer-container {
+  padding: 30px 4% 20px;
+
+  // フッターの中の文字
+  .footer-text {
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+  }
+}
